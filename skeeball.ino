@@ -113,14 +113,13 @@ int hiScoreAddress() {
 void hiScoreWrite() {
   if (_currentScore > _hiScore) {
     int tempAddress = _currentScore / 255;
-    int addr = tempAddress - _hiScoreAddress;
-    for (int i = 0; i <= addr; i++) {
+    for (int i = _hiScoreAddress; i <= tempAddress; i++) {
       EEPROM.write(i, 255);
     }
-    addr++;
-    EEPROM.write(addr, (_currentScore % 255));
+    tempAddress++;
+    EEPROM.write(tempAddress, (_currentScore % 255));
     _hiScore = _currentScore;
-    _hiScoreAddress = addr;
+    _hiScoreAddress = tempAddress;
   }
 }
 
