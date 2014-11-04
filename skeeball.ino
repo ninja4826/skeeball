@@ -4,7 +4,7 @@
 const int _scorePin = A0;
 
 const int _startPin = A1;
-
+// latch, clock, data
 const int _muxPin[] = {A1, A2, A3};
 const int _ticketPin = 9;
 
